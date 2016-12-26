@@ -1,0 +1,75 @@
+<html>
+<head><title>VisiLibity Coding Standards</title></head>
+<body face="helvetica" bgcolor="#ffffff" link="#406080" vlink="#406080">
+
+
+<h1>VisiLibity Coding Standards</h1>
+
+<strong>Appearance</strong>
+<ul>
+  <li>80 character line width</li>
+  <li>be liberal with whitespace to aid readablility</li>
+</ul>
+
+
+<strong>Naming</strong>
+<ul>
+  <li>use descriptive identifiers</li>
+  <li>make use of prefixes such as is_, get_, set_ and suffixes _max, _cnt, _key</li>
+  <li>never use a leading underscore because compiler variables do</li>
+  <li>private and protected member data identifiers are all lowercase with a single underscore suffix, e.g, x_
+  <li>use ALL_UPPERCASE for identifiers of #defined constants, macros, and values of enum type
+  <li>use First_Letter_Upper_Case for identifiers of namespaces and user defined types, such as classes (extra uppercase letters can be used for exceptional special words like VisiLibity, but never use all uppercase for an abbreviation, even acroyms)
+  <li>use all_lowercase for identifiers of local variables, functions, and formal parameters</li>
+  <li> prefix global variables with g_ and static variables with s_</li>
+</ul>
+
+
+<strong>Documentation</strong>
+<ul>
+  <li>document in the source code using <a href="http://www.stack.nl/~dimitri/doxygen/docblocks.html">Doxygen</a>
+  <ul>
+    <li> for brief description only, use the C++ style triple slash, e.g.,
+    <p>
+    <div class="fragment">
+      <pre class="fragment">
+      /// a brief description
+      </pre>
+    </div>
+    <p>
+    </li>    
+    <li> for descriptions beyond just brief, use the JavaDoc style, which consists of a C-style comment block starting with two *s, e.g.,
+    <p>
+    <div class="fragment">
+      <pre class="fragment">
+      /** \brief first part of brief desicription
+       *         brief description continued
+       *
+       * longer description, details, if you like...
+       * \author  your name
+       * \param x  description of \a x
+       * \pre  a precondition
+       * \post  a postcondition
+       * \remarks  some remarks, e.g., time complexity O(n^2)
+       * \return  a number
+       */
+      </pre>
+    </div>
+    </li>
+    <li>documentation blocks should be placed immediately before the item they are describing, otherwise additional syntax required</li>
+    <li>JAVADOC_AUTOBRIEF is set to NO, so you must use the \brief directive</li>
+    <li>feel free to make notes using commands such as \todo{} and \warning{}</li>
+    <li>sign your work with the \author field whenever a method is sufficiently complicated that it takes you more than a few minutes to write</li>
+  </ul>
+</ul>
+
+
+<center>
+<hr width="75%">
+<a href="./index.html">Project Page</a> |
+<a href="./html/index.html">Source Code Documentation</a>
+</center>
+
+
+</body>
+</html>

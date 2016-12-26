@@ -1,0 +1,49 @@
+_Making_VisiLibity_Work_on_Windows_+_Matlab_
+
+The default compiler in Matlab, Lcc, is a pure C compiler that cannot
+compile C++ source code.  Below are two alternative approaches to
+making matlab work with C++.
+
+
+
+_With_MSVC++_
+
+Try compiling with MSVC++ in the Matlab environment by the following
+commands:
+
+mex -c visilibity.cpp
+mex -v visibility_graph.cpp visilibity.obj
+mex -v visibility_polygon.cpp visilibity.obj
+mex -v shortest_path.cpp visilibity.obj
+mex -v in_environment.cpp visilibity.obj
+
+
+
+_With_gcc_
+
+If you encounter errors when trying to compile with the MSVC++
+compiler supported by matlab, there is an opensource project gnumex
+(http://sourceforge.net/projects/gnumex/) that can make Matlab support
+gcc.  The solution needs some additional configurations to Matlab and
+tiny modifications to the mex-prepared C source files.  My software
+environment is Windows XP SP3 + Matlab 7.0.1.24704(R14) SP1.  For
+compiling the VisiLibity library, a Windows version gcc and an
+extension of gcc support for Matlab are necessary. I use MinGW 5.1.4
+(http://www.mingw.org/) and gnumex 2.01.
+
+Main steps:
+
+1.  Compile visilibity.cpp into visilibity.o with gcc
+gcc -c visilibity.cpp
+
+3.  Install MinGW and gnumex, and config the gnumex in Matlab. The
+detailed configuration instructions can be found here
+http://gnumex.sourceforge.net/
+
+4. Compile the four mex-prepared cpp files in matlab's prompt:
+mex -v xxxx.cpp visilibity.o
+and get the corresponding dll files
+
+5. Run the demo .m files
+
+I suspect the source codes can be compiled by msvc compiler.

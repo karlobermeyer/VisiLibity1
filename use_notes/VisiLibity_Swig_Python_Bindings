@@ -1,0 +1,89 @@
+Index: visilibity/VisiLibity/source_code/makefile
+===================================================================
+--- visilibity.orig/VisiLibity/source_code/makefile	2009-04-15 22:38:07.000000000 -0400
++++ visilibity/VisiLibity/source_code/makefile	2009-04-15 22:58:50.000000000 -0400
+@@ -1,4 +1,4 @@
+-#Phony target.
++#phony target.
+ current_target: main
+ 
+ 
+@@ -23,3 +23,18 @@
+ 	clear
+ 	pwd
+ 	ls
++
++.SECONDARY:
++python: _visilibity.so
++
++%_wrap.cxx: %.i $(FILES_H)
++	swig -Wall -python -c++ $<
++%_wrap.o: %_wrap.cxx
++	$(CXX) $(INCLUDE) -c $<  `python2.5-config --cflags`
++
++_%.so: %_wrap.o
++ifeq ($(OS), Darwin)
++	$(CXX) -Wall -dynamiclib  $< visilibity.o $(LDFLAGS) `python2.5-config --ldflags` -o $@
++else
++	$(CXX) -Wall -shared  $< visilibity.o $(LDFLAGS) `python2.5-config --ldflags` -o $@
++endif
+Index: visilibity/VisiLibity/source_code/visilibity.i
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ visilibity/VisiLibity/source_code/visilibity.i	2009-04-15 23:30:36.000000000 -0400
+@@ -0,0 +1,20 @@
++%module visilibity
++%{
++
++#include "visilibity.hpp"
++%}
++%include std_vector.i
++namespace std {
++	  %template(pointList) vector<VisiLibity::Point>;
++	  %template(polygonList) vector<VisiLibity::Polygon>;
++}
++
++
++%include visilibity.hpp
++
++
++%extend VisiLibity::Polygon {
++  Point __getitem__(unsigned i) {
++    return (*self)[i];
++  }
++};
+\ No newline at end of file
+Index: visilibity/VisiLibity/source_code/visilibity_test.py
+===================================================================
+--- /dev/null	1970-01-01 00:00:00.000000000 +0000
++++ visilibity/VisiLibity/source_code/visilibity_test.py	2009-04-15 23:32:55.000000000 -0400
+@@ -0,0 +1,29 @@
++import unittest
++
++
++class VisilibityTest(unittest.TestCase):
++    def testVisilibity(self):
++        import visilibity as vis
++
++        walls = vis.Polygon([vis.Point(0,0),
++                             vis.Point(960,0),
++                             vis.Point(960,960),
++                             vis.Point(0,960)])
++        hole = vis.Polygon([vis.Point(100, 100),
++                            vis.Point(150, 100),
++                            vis.Point(150, 200),
++                            vis.Point(100, 150)])
++        env = vis.Environment([walls, hole])
++        self.assertEqual(env.h(), 1)
++        start = vis.Point(1,1)
++        end = vis.Point(959,959)
++
++        isovist = vis.Visibility_Polygon(vis.Point(1,1), env)
++
++        for i in range(isovist.n()):
++            print isovist[i].x(), isovist[i].y()
++            
++        
++if __name__ == "__main__":
++    unittest.main()
++

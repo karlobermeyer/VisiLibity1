@@ -1,0 +1,116 @@
+ <!DOCTYPE HTML PUBLIC>
+<html>
+<head>
+<title> VisiLibity Frequently Asked Questions </title>
+</head>
+<body>
+<!-- all the HTML for display -->
+<h1> VisiLibity Frequently Asked Questions </h1>
+
+
+<br><h3>I am getting computation errors.  What should I do?</h3>
+
+Programs may crash if (1) the robustness constant &epsilon is chosen
+poorly, or (2) the environment model is not &epsilon -valid (see
+answer to next question).  Before reporting a bug, try varying
+&epsilon by a few orders of magnitude in both directions or checking
+evironment &epsilon -validity using the Enviroment::is_valid method.
+Note &epsilon should never be set to zero except when performing
+certain debugging procedures on the VisiLibity code itself.  To start,
+try setting &epsilon to a number a couple orders of magnitude smaller
+than the smallest featrure in the environment, e.g., double &epsilon =
+0.0000001; This means you must include an &epsilon in all function
+calls, i.e., do not use the default argument &epsilon=0.0.  For
+example, you need to add &epsilon at Visibility_Polygon(observer, env,
+epsilon).
+
+
+<br><br><h3> Will VisiLibity work for polygonal environments where the
+edges of distinct polygons intersect?</h3>
+
+No, VisiLibity R-1 is not meant to operate on environments where edges
+of distinct polygons intersect.  For correctness of computation, in
+addition to choosing suitable &epsilon, the environment must be ``
+&epsilon -valid''.  This can be checked using the
+Environment::is_valid() method.  An environment is &epsilon -valid if
+none of its outer boundary or holes intersect each other, and there is
+a distance at least &epsilon between any features (vertices and
+edges), and there can be no redundant vertices (e.g. don't list the
+first vertex redundantly also as the last) in the polygon vertex
+lists.
+
+<!-- Real GIS data sets may have many overlapping polygons
+representing buildings.  Although I have not implemented it, it is
+possible to robustly compute shortest paths with such environments,
+but at the expense of slower computation time.  I plan to fix this in
+the next version of VisiLibity.  The software is not intended to work
+with polygons that overlap (nor that self-intersect).  The Environment
+must be &epsilon -valid for an &epsilon reasonably larger than machine
+precision, which can be checked by the method
+VisiLibity::Environment::is_valid as defined in the documentation:-->
+
+<p>
+If your environment is not &epsilon -valid and you want VisiLibity to
+work for your application, then you must perform preprocessing to
+enforce &epsilon -validity.  I plan to remove the &epsilon -validity
+precondition in the next version of VisiLibity; until then I
+appologize for the inconvenience.
+
+
+<br><br><h3>Should I cache a Visibility_Graph if I'm performing many
+shortest path queries in the same Environment?</h3>
+
+Yes.  Here's how:
+<br>
+1) Define a small &epsilon like this:
+double epsilon = 0.000000001;
+This is very important, otherwise there are robustness/degeneracy problems.
+<br>
+2) Construct your environment like this:
+VisiLibity::Environment environment( filename );
+<br>
+2) Construct the visibility graph like this:
+VisiLibity::Visibility_Graph visibility_graph( environment, epsilon );
+<br>
+3) Make path queries like this:
+Polyline path = environment.shortest_path( startpoint, endpoint, visibility_graph, epsilon );
+
+
+<br><br><h3>I am unable to compile VisiLibity under Microsoft Windows.
+What should I do?</h3>
+
+VisiLibity R-1 uses definitions which do not exist in the Microsoft
+Visual Studio compilers.  To add these definitions, uncomment these
+lines in the header visilibity.hpp
+
+<pre>
+//Uncomment these lines when compiling under 
+//Microsoft Visual Studio
+/*
+#include&lt;limits&gt;
+#define NAN std::numeric_limits&lt;double&gt;::quiet_NaN()
+#define INFINITY std::numeric_limits&lt;double&gt;::infinity()
+#define M_PI 3.141592653589793238462643
+#define and &&
+#define or ||
+*/
+</pre>
+
+Alternatively, you could get a Gnu compiler working on your machine.
+Some helpful hints on getting a Gnu complier running on a Windows
+machine can be found under <A
+href="./VisiLibity_Matlab_Windows.notes.text">Notes on Matlab
+Interface under Windows</A>.
+
+
+<br><br><h3> How do I make VisiLibity work on a 64-bit machine?</h3>
+
+To compile VisiLibity on a pure 64-bit system, add -fPIC to the
+CXXFLAGS in the makefile.  Also, if Matlab does not link to the
+correct libraries, try changing the symlinks in
+/usr/local/MATLAB/R2010b/sys/os/glnxa64/ to the correct ones in
+/usr/lib/
+
+
+</body>
+</html>

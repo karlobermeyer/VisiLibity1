@@ -1,0 +1,33 @@
+ Here is an script using Python. It's a simple example to help people
+understand how to use the VisiLibity library with the bindings for
+Python.
+
+The first file "visilibity_test.py" is the script and "_visibility.so"
+is the library, I include this file in case you have any problems
+using the bindings for Python you have on your web page. If you
+compile the library with the bindings for Python then the
+"_vililibity.so" is not necessary because you will generate it.
+
+In the example I first create the outer boundary of the environment, I
+call it "walls". Then I create the polygons for some holes (4 in
+total) and I explain that we are not supposed to use epsilon = 0.0 as
+well as what polygons are necessary to be listed in CW and CCW and
+what point should be the first.
+
+Continuing with the example-tutorial I add some points (3 in total) -
+the "observer", "end" and "end_visible" - one is used to test the
+visibility polygon, "end" is a point wich is not in the visibility
+polygon and "end_visible" is a visible point for the observer (to show
+how to test whether a point is visible). Then I made a little example
+of the shortest path function.
+
+Finally I plot almost all the information plus a cone polygon. For the
+plots I used the pylab library, you may need to install it. If you
+don't want to see the plot or to install the library then simply
+comment the "import pylab as p" and every line saying "p.plot()" and
+"p.show()". I start plotting the walls and the three points, then
+continue with the visibility polygon and the holes to finally end with
+a cone polygon. I plot a cone polygon because I had to implement a
+cone vision for the agents I am studding. I though it may be useful
+for some one. Although I include the function that creates the cone, I
+explain that function with comments.

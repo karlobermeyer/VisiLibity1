@@ -1,5 +1,7 @@
-# VisiLibity R-1
+# VisiLibity Release 1
+
 A C++ Library for Planar Visibility Computations
+
 See also <https://karlobermeyer.github.io/VisiLibity1/>.
 
 

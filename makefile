@@ -1,4 +1,4 @@
-# Generates VisiLibity webpage, download package file, and web documentation
+# Generates VisiLibity webpage, download package file, and web documentation.
 
 # \Get today's date in two different formats
 TODAY =`date "+%Y_%m_%d" | tail -c 11`
@@ -12,10 +12,10 @@ public: clean
 	@doxygen VisiLibity.Doxyfile
 	@echo "(2) Generate gzip'd tar ball of VisiLibity files"
 	@tar czvf "./VisiLibity."${TODAY}".tgz" \
-	README COPYING COPYING.LESSER \
+	README.md COPYING COPYING.LESSER \
 	$S/visilibity.hpp $S/visilibity.cpp $S/main.cpp $S/makefile \
 	$S/example1.environment $S/example2.environment \
-	S/example1.guards \
+	$S/example1.guards \
 	$S/visibility_polygon.cpp \
 	$S/in_environment.cpp \
 	$S/shortest_path.cpp \
@@ -32,7 +32,7 @@ public: clean
 	cp ./index_temp.html ./index.html
 	rm ./index_temp.html
 	@echo "(4) Set permissions for public access"
-	@chmod -R 755 .
+	./setperms.sh
 	@clear
 	@echo
 	@echo "Files in . : "
@@ -42,8 +42,14 @@ public: clean
 	@echo "where ./VisiLibity."${TODAY}".tgz contains"
 	@echo
 	@tar tzvf "./VisiLibity."${TODAY}".tgz"
+	git add "./VisiLibity."${TODAY}".tgz"
+	git add doxygen_html
 
 clean:
+	if [ -a ./VisiLibity*.tgz ] ; \
+	then \
+		git rm ./VisiLibity*.tgz ; \
+	fi;
 	rm -rf *~ ./VisiLibity*.tgz ./doxygen_html
 	clear
 	pwd

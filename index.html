@@ -1,10 +1,11 @@
-<html>
+<!doctype html public>
+<html lang="en">
 
 
 <head>
-  <title>VisiLibity</title>
-  <meta name="description" content="A free open source C++ library of floating-point visibility algorithms and supporting data types">
-  <meta name="keywords" content="visibility , polygon , graph , shortest path planning , computational geometry , C++ , library , open source ">
+  <title>VisiLibity&nbsp;1</title>
+  <meta name="description" content="A free open source C++ library of planar visibility algorithms.">
+  <meta name="keywords" content="visibility, polygon, graph, shortest path planning, computational geometry, C++, library, open source">
   <style type="text/css">
     body {font-family:Arial, sans-serif}
     a:link {text-decoration: none;}
@@ -18,12 +19,20 @@
 
 <center>
   <!-- <table width="520"> -->
-  <table width="60%"><tbody>
+  <table width="60%">
+  <tbody>
     <tr>
-      <td align="left"><font color="#406080" face="arial"> <b> <font size="18">VisiLibity</font>.org</b></font></td>
-      <td align="right"><b>for Floating-Point Visibility Computations</b><br></td>
+      <td align="left">
+        <font color="#406080" face="arial">
+          <b><font size="18">VisiLibity 1</font></b>
+        </font>
+      </td>
+      <td align="right">
+        <b>for Planar Visibility Computations</b><br>
+      </td>
     </tr>
-  </tbody></table>
+  </tbody>
+  </table>
 </center>
 
 
@@ -65,19 +74,20 @@
     <td>
       <p>
 
-        VisiLibity is a free open source C++ library for 2D floating-point
-	visibility algorithms, path planning, and supporting data types.  It is
-	intended for use in robot and sensor network design software.  Other
-	possible applications include, e.g., manufacturing, facility location,
-	architectural/urban planning, games, and education.  The entire library
-	consists only of a single compilation unit (one .hpp + one .cpp file)
-	with no dependence on third party libraries.  It is therefore suitable
-	for applications where simple visibility and path planning computations
-	are needed but the power of a larger computational geometry library is
-	not necessary.  VisiLibity offers
+  VisiLibity Release 1 is a free open source C++ library for 2D floating-point
+  visibility algorithms, path planning, and supporting data types.  It is
+  intended for use in robot and sensor network design software.  Other possible
+  applications include, e.g., manufacturing, facility location,
+  architectural/urban planning, games, and education.  The entire library
+  consists only of a single compilation unit (one .hpp + one .cpp file) with no
+  dependence on third party libraries.  It is therefore suitable for
+  applications where simple visibility and path planning computations are needed
+  but the power of a larger computational geometry library is not necessary.
 
 	<br><br>
-	<b>Current Functionality of VisiLibity (R-1)</b> in planar polygonal environments with polygonal holes
+  <b>Current Functionality of VisiLibity (R-1)</b> in planar polygonal
+  environments with polygonal holes:
+
 	<ul>
 	  <li>visibility polygons</li>
 	  <li>visibility graphs</li>
@@ -123,9 +133,8 @@
     <td>
       <p>
 
-        The following set of files includes the VisiLibity source code as well
-	as some other files, one of which is a README with more detailed
-	instructions:
+  The following set of files includes the VisiLibity source code as well as some
+  other files, one of which is a README with more detailed instructions:
 
 	<br><br>
 
@@ -133,12 +142,12 @@
 	  <table border="1" cellpadding="4"><tbody>
 	    <tr>
 	      <td>
-		Version 2015:01:17 (gzip'd tarball)
+		Version 2016:12:26 (gzip'd tarball)
 		<br>
-		<a href="./VisiLibity.2015_01_17.tgz"
+		<a href="./VisiLibity.2016_12_26.tgz"
 		onClick="javascript:
 		pageTracker._trackPageview('/downloads/VisiLibity.tgz'); ">
-		VisiLibity.2015_01_17.tgz </a>
+		VisiLibity.2016_12_26.tgz </a>
 		<br>
 	      </td>
 	    </tr>
@@ -177,12 +186,11 @@
 	<pre>
 	@Misc{VisiLibity:08,
 	   author =       {K. J. Obermeyer and Contributors},
-	   title =        {The {VisiLibity} library},
+	   title =        {The {VisiLibity} Library},
 	   howpublished = {\texttt{http://www.VisiLibity.org}},
 	   year =         2008,
-	   note =         {R-1},
-	   abstract =     {A C++ library for floating-point visibility
-	                   computations},
+	   note =         {Release 1},
+	   abstract =     {A C++ library for planar visibility computations},
 	}
 	</pre>
 	Also, I would be very interested to learn what projects VisiLibity has
@@ -193,7 +201,7 @@
       <p><font color="green"><b>Help and Contributions:</b></font> To report a
 	bug/bugfix or ask a question, send <a href="./karl/index.html"
 	target="_top"><u>me</u></a> an email, but please be sure to
-	check <a href="./notes/VisiLibity_FAQ.html" target="_top"><B>Frequently
+	check <a href="./use_notes/VisiLibity_FAQ.html" target="_top"><B>Frequently
 	Asked Questions</B></a> first.
 	<!--
 	please search the mailing list at <a
@@ -208,17 +216,17 @@
 
       <table border=1 cellpadding=1 cellspacing=0 bgcolor="white" align="center" width="95%">
         <tr bgcolor="dddddd"> <th> Contribution </th> <th> Thanks to </th> </tr><tbody>
-	<tr> <td> <a href="./notes/VisiLibity_Swig_Python_Bindings" target="_top"><B>SWIG/Python Bindings</B></a> </td> <td>Stefanie T. of MIT, United States</td>
-	<tr> <td> <a href="./notes/VisiLibity_Python_Bindings_with_Example.tgz" target="_top"><B>Python Bindings with Example</B></a> </td> <td>Ramiro C. of UNC, Argentina</td>
+	<tr> <td> <a href="./use_notes/VisiLibity_Swig_Python_Bindings" target="_top"><B>SWIG/Python Bindings</B></a> </td> <td>Stefanie T. of MIT, United States</td>
+	<tr> <td> <a href="./use_notes/VisiLibity_Python_Bindings_with_Example.tgz" target="_top"><B>Python Bindings with Example</B></a> </td> <td>Ramiro C. of UNC, Argentina</td>
 	<tr> <td> <a href="http://github.com/madriska/visilibity-ruby/tree/master" target="_top"><B>SWIG/Ruby Bindings</B></a> </td> <td>Brad E. of Madriska Media Group, United States</td>
-	<tr> <td> <a href="./notes/VisiLibity_Matlab_Windows.notes.text"
+	<tr> <td> <a href="./use_notes/VisiLibity_Matlab_Windows.notes.txt"
 	  target="_top"><B>Notes on Matlab Interface under
 	  Windows</B></a> </td> <td>Lu L. of TUM, Germany and Bruno H. of CMU,
 	  United States</td>
-	<tr> <td> <a href="./notes/VisiLibity_FAQ.html"
+	<tr> <td> <a href="./use_notes/VisiLibity_FAQ.html"
 	  target="_top"><B>Compiling with MS Visual Studio</B></a>
 	  </td> <td>Derek K. of AFRL, United States</td>
-	<tr> <td> <a href="./notes/VisiLibity_FAQ.html" target="_top"><B>Using a
+	<tr> <td> <a href="./use_notes/VisiLibity_FAQ.html" target="_top"><B>Using a
 	  64-bit Machine</B></a>
 	  </td> <td>Claus C. of Georgia Tech, United States</td>
 	<tr> <td> <a>Misc. Minor Bug Fixes</a>
@@ -401,7 +409,7 @@
 
 <center>
   <hr width="60%">
-  <a href="./karl/index.html" target="_top">Karl J. Obermeyer</a>
+  <a href="https://karlobermeyer.github.io" target="_top">Karl J. Obermeyer</a>
 </center>
 
 
@@ -423,4 +431,6 @@ pageTracker._trackPageview();
 
 
 </body>
+
+
 </html>

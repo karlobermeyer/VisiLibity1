@@ -1,0 +1,155 @@
+/*
+Copyright (C) 2018  Karl J. Obermeyer
+
+This file is part of VisiLibity.
+
+VisiLibity is free software: you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+VisiLibity is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
+License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+* {
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Arial, Helvetica", sans-serif;
+  /*font-family: "lucida console", monospace;*/
+  /*outline: 1px solid red !important;*/
+}
+
+a:link {
+  color: #406080;
+  text-decoration: none;
+}
+
+a:hover {
+  /*font-weight: bold;*/
+  /* Use one of these instead of bold for viariable-space fonts */
+  /*text-shadow: 0 0 1px black;*/
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+  /*max-width: 700;*/
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.title-tr {
+  background-color: #cccccc;
+}
+
+body {
+  background-color: #ffffff;
+  margin: 10px auto;
+  max-width: 800px; /* default 960 */
+  min-width: 320px; /* default 320 */
+  width: 100%;
+  /*padding-bottom: 500px;*/
+}
+
+
+
+/* --- Responsive Header --- */
+
+header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /*justify-content: space-between;*/
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+#title {
+  color: #406080;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 3em;
+  /*line-height: 100%;*/
+  margin: 0;
+  padding: 0;
+}
+
+#subtitle {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 1em;
+  /*line-height: 100%;*/
+  margin: 0;
+  padding: 5px 0;
+}
+
+#title-img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+}
+
+
+
+/* --- Main Content --- */
+
+article {
+  margin: 0 auto 0 auto;
+  overflow-wrap: break-word; /* renamed property in CSS3 draft spec */
+  padding-bottom: 10px;
+  width: 95%;
+  word-wrap: break-word; /* all browsers since IE 5.5+ */
+}
+
+.article-title {
+  background-color: #406080;
+  color: #ffffff;
+  margin-bottom: 0;
+  width: 100%
+}
+
+
+
+/* --- Footer --- */
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 1em 0 1em 0;
+  padding: 0;
+}
+
+.footer-hr {
+  width: 100%;
+}
+
+.copyright {
+  width: 100%;
+}

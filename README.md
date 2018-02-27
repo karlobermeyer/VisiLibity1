@@ -8,11 +8,12 @@ See also <https://karlobermeyer.github.io/VisiLibity1/>.
 
 ## Using
 
-To use VisiLibity in your C++ program, you simply need to place an
-`#include "visilibity.hpp"` directive at the beginning of your program and link
-with `visilibity.cpp` when compiling.  For details on particular classes and
-methods, refer to the source code documentation page to which there is a link on
-the project page <https://karlobermeyer.github.io/VisiLibity1/>.
+Source files are in `src/`. To use VisiLibity in your C++ program, you simply
+need to place an `#include "visilibity.hpp"` directive at the beginning of your
+program and link with `visilibity.cpp` when compiling. For details on
+particular classes and methods, refer to the source code documentation page to
+which there is a link on the project page
+<https://karlobermeyer.github.io/VisiLibity1/>.
 
 The files `main.cpp` and `makefile` (listed below) provide an elementary example
 of a C++ program which uses VisiLibity.  Once compiled (`make main`), this

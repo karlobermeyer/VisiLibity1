@@ -25,19 +25,19 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * \mainpage
  * <center>
- * see also the <a href="../index.html">VisiLibity Project Page</a>
+ * see also the <a href="../index.html">VisiLibity1 Project Page</a>
  * </center>
- * <b>Authors</b>:  Karl J. Obermeyer
+ * <b>Authors</b>:  Karl J. Obermeyer and contributors
  * <hr>
  * \section developers For Developers
  * <a href="../VisiLibity.coding_standards.html">Coding Standards</a>
  * <hr>
  * \section release_notes Release Notes
- * <b>Current Functionality</b>
+ * <b>Current Functionality</b> in planar polygonal environments with polygonal holes:
  *   <ul>
- *      <li>visibility polygons in polygonal environments with holes</li>
+ *      <li>visibility polygons</li>
  *      <li>visibility graphs</li>
- *      <li>shortest path planning for a point</li>
+ *      <li>Euclidean shortest paths for a point</li>
  *   </ul>
  */
 

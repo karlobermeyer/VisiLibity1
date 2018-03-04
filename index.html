@@ -40,7 +40,7 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     <h1 id="title">VisiLibity1</h1>
     <h3 id="subtitle">Planar Visibility Computations</h3>
 
-    <a href="./media/shortest_path_visibility_polygon_demo_MOUT.small.mov" target="_top">
+    <a href="./media/shortest_path_visibility_polygon_demo_MOUT.small.mov" target="_blank">
       <img id="title-img" src="./media/visibility_polygon_example_small.png" alt="">
     </a>
 
@@ -49,6 +49,8 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
         <a class="nav-item" href="#about">About</a>
         <span class="nav-item-separator">|</span>
         <a class="nav-item" href="#using">Using</a>
+        <span class="nav-item-separator">|</span>
+        <a class="nav-item" href="#help-and-contributions">Help&nbsp;&amp;&nbsp;Contributions</a>
         <span class="nav-item-separator">|</span>
         <a class="nav-item" href="#math">Math</a>
       </div>
@@ -76,7 +78,6 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
       planning computations are needed but the power of a larger computational
       geometry library is not necessary.
     </p>
-
     <p>
       <b>Current Functionality of VisiLibity1</b> in planar polygonal
       environments with polygonal holes:
@@ -85,9 +86,8 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
       <li>visibility polygons</li>
       <li>visibility graphs</li>
       <li>Euclidean shortest paths for a point</li>
-      <li>Python and Matlab interfaces</li>
+      <li class="grey-text">Matlab, Python, and Ruby bindings  (unofficial)</li>
     </ul>
-
     <p>
       Exact/arbitrary precision arithmetic is avoided and robustness is
       achieved by considering two points to be colocated whenever the Euclidean
@@ -97,26 +97,11 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
       dramatically, library functions can and will return errors.  However,
       provided the user tunes the robustness constant appropriately, we find
       the library works well for a large range of useful environments.
-      Examples of environments and a Matlab interface (via MEX-files) are
-      available with the download package below.
     </p>
   </article>
 
   <article id="using">
     <h2 class="article-title">Using</h2>
-    <p>
-    To use VisiLibity1 in your C++ program,<br>
-    	&nbsp;&nbsp;1. Clone the <a href="https://github.com/karlobermeyer/VisiLibity1" target="_blank">git repo</a> and read README.md,<br>
-    	&nbsp;&nbsp;2. Place an #include "visilibity.hpp" directive at the beginning of
-    	your program, and<br>
-    	&nbsp;&nbsp;3. Link your program with visilibity.cpp when compiling.<br>
-    </p>
-
-    <p>
-      Here is the <a href="./doxygen_html/index.html" target="_blank">source
-      code documentation</a>.
-    </p>
-
     <p>
     	When possible, please <b>cite VisiLibity1</b>.  For your convenience,
     	here is a BibTeX item
@@ -131,41 +116,66 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
   abstract = {C++ library for planar visibility computations},
 }
 </pre>
+    <h3>C++</h3>
     <p>
-      Also, I would be interested to learn what projects VisiLibity1 has been
-      used for, so if you like, send <a href="https://karlobermeyer.github.io"
-      target="_blank"><u>me</u></a> an email.
+    To use VisiLibity1 in your C++ program,<br>
+      &nbsp;&nbsp;1. Clone the <a href="https://github.com/karlobermeyer/VisiLibity1" target="_blank">git repo</a> and read README.md,<br>
+      &nbsp;&nbsp;2. Place an #include "visilibity.hpp" directive at the beginning of
+      your program, and<br>
+      &nbsp;&nbsp;3. Link your program with visilibity.cpp when compiling.<br>
     </p>
 
     <p>
-      <b>Help and Contributions:</b> To report a bug/bugfix or ask a question,
-      send <a href="https://karlobermeyer.github.io"
-      target="_blank"><u>me</u></a> an email with subject line of the form
-      "VisiLibity1: ...". This project is entirely volunteer work and I have
-      many other demands on my time, so please forgive slow responses. Be sure
-      to check <a href="./use_notes/VisiLibity_FAQ.html"
-      target="_blank"><b>Frequently Asked Questions</b></a> before emailing a
-      question. Any other comments you may have are also welcome, e.g., on
-      overall organization/style of the library, possible future functionality,
-      etc..
+      Here is the <a href="./doxygen_html/index.html" target="_blank">source
+      code documentation</a>.
+    </p>
+
+    <h3>Matlab</h3>
+    <p>
+      MEX files are included in `src/` on the GitHub repository.
+      See contributions list below for notes on use under Windows.
+    </p>
+
+    <h3>Python and Ruby</h3>
+    <p>
+      See constributions list below to download the SWIG interfaces. I've never
+      used these, so I can't answer questions about them. However, if you have
+      information you would like to share, esp. how you overcame difficulties,
+      let me know and I can post it to the FAQ or contributions notes.
+    </p>
+  </article>
+
+  <article id="help-and-contributions">
+    <h2 class="article-title">Help&nbsp;&amp;&nbsp;Contributions</h2>
+    <p>
+      To report a bug/bugfix or ask a question, send <a
+      href="https://karlobermeyer.github.io" target="_blank"><u>me</u></a> an
+      email with subject line of the form "VisiLibity1: ...". This project is
+      entirely volunteer work and I have many other demands on my time, so
+      please forgive slow responses. Be sure to check <a
+      href="./use_notes/VisiLibity_FAQ.html" target="_blank"><b>Frequently
+      Asked Questions</b></a> before emailing a question. Any other comments
+      you have are also very welcome, e.g., on what your application is,
+      overall architecture of the library, or possible future functionality.
     </p>
 
     <table>
       <tr class="title-tr"><th>Contribution</th><th>Thanks to</th></tr>
       <tbody>
-      	<tr><td><a href="./use_notes/VisiLibity_Swig_Python_Bindings" target="_top"><b>SWIG/Python Bindings</b></a></td><td>Stefanie T. of MIT, United States
-      	<tr><td><a href="./use_notes/VisiLibity_Python_Bindings_with_Example.tgz" target="_top"><b>Python Bindings with Example</b></a></td><td>Ramiro C. of UNC, Argentina
-      	<tr><td><a href="http://github.com/madriska/visilibity-ruby/tree/master" target="_top"><b>SWIG/Ruby Bindings</b></a></td><td>Brad E. of Madriska Media Group, United States
+
+      	<tr><td><a href="./use_notes/VisiLibity_Python_Bindings_with_Example.tgz" target="_blank"><b>Python Bindings with Example</b></a></td><td><a href="http://www.southampton.ac.uk/~yc6n13/" target="_blank">Yu Cao</a> of U. of Southampton, UK; Stefanie T. of MIT, United States; Ramiro C. of UNC, Argentina
+      	<tr><td><a href="http://github.com/madriska/visilibity-ruby/tree/master" target="_blank"><b>Ruby Bindings</b></a></td><td>Brad E. of Madriska Media Group, United States
       	<tr><td><a href="./use_notes/VisiLibity_Matlab_Windows.notes.txt"
-      	  target="_top"><b>Notes on Matlab Interface under
-      	  Windows</b></a> </td> <td>Lu L. of TUM, Germany and Bruno H. of CMU, United States
+      	  target="_blank"><b>Notes on Matlab Interface under
+      	  Windows</b></a> </td> <td>Lu L. of TUM, Germany; Bruno H. of CMU, United States
       	<tr><td><a href="./use_notes/VisiLibity_FAQ.html"
-      	  target="_top"><b>Compiling with MS Visual Studio</b></a></td><td>Derek K. of AFRL, United States
-      	<tr><td><a href="./use_notes/VisiLibity_FAQ.html" target="_top"><b>Using a 64-bit Machine</b></a>
+      	  target="_blank"><b>Compiling with MS Visual Studio</b></a></td><td>Derek K. of AFRL, United States
+      	<tr><td><a href="./use_notes/VisiLibity_FAQ.html" target="_blank"><b>Using a 64-bit Machine</b></a>
       	  </td><td>Claus C. of Georgia Tech, United States
       	<tr><td><a>Misc. Minor Bug Fixes</a></td><td>Generous people worldwide
       </tbody>
     </table>
+    <p></p>
 
   </article>
 
@@ -196,13 +206,13 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     <p>
     	More details on problems associated with floating-point
     	arithmetic can be found, e.g., in <a
-    	href="http://dlc.sun.com/pdf/800-7895/800-7895.pdf" target="_top">``What
+    	href="http://dlc.sun.com/pdf/800-7895/800-7895.pdf" target="_blank">``What
     	Every Computer Scientist Should Know About Floating Point
     	Arithmetic"</a>.
     </p>
     <p>
     	So why use floating-point arithmetic?
-    	As <a href="http://cs.nyu.edu/cs/faculty/yap/" target="_top">Chee
+    	As <a href="http://cs.nyu.edu/cs/faculty/yap/" target="_blank">Chee
     	K. Yap</a> wrote in the ``Handbook of Discrete and Computational
     	Geometry" (2nd Edition, p. 930),
     </p>
@@ -230,7 +240,7 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
 
     <p>
     	The aglorithms and methods used in VisiLibity come mostly from these
-    	sources: <a href="./VisiLibity.bib" target="_top">VisiLibity.bib</a>
+    	sources: <a href="./VisiLibity.bib" target="_blank">VisiLibity.bib</a>
     	(BibTeX file)
 
     	<!--
@@ -259,13 +269,13 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     <h2 class="article-title">License</h2>
     <p>
       VisiLibity is licensed under version 3 of the <a
-      href="http://www.gnu.org/licenses/" target="_top">GNU Lesser General Public
+      href="http://www.gnu.org/licenses/" target="_blank">GNU Lesser General Public
       License</a>.
     </p>
   	<!-- The images on- and screenshots pointed to by- this page
   	are in the <a
   	href="http://creativecommons.org/licenses/publicdomain/"
-  	target="_top">PUBLIC DOMAIN</a>.<br> Images you produce with
+  	target="_blank">PUBLIC DOMAIN</a>.<br> Images you produce with
   	VisiLibity are your property.<br> -->
   </article>
 
@@ -276,15 +286,16 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
       of these are officially associated with VisiLibity.
     </p>
     <p>
-    	<a href="http://www.cgal.org/" target="_top">CGAL: Computational Geometry Algorithms Library</a><br>
-    	<a href="http://www.algorithmic-solutions.com/leda/index.htm" target="_top">LEDA: Library of Efficient Data types and Algorithms</a>; <a href="http://www.mpi-inf.mpg.de/LEDA/friends/userproj/vispak.html" target="_top">VISPAK: Visibility algorithms in LEDA</a><br>
-    	<a href="http://msl.cs.uiuc.edu/msl/" target="_top">MSL: Motion Strategy Library</a><br>
-    	<a href="http://robotics.stanford.edu/~mitul/mpk/" target="_top">MPK: Motion Planning Kit</a><br>
-    	<a href="http://ares.lids.mit.edu/software/RRT%28*%29.html" target="_top">RRT/RRT* implementation in C</a><br>
-    	<a href="http://geometrylibrary.geodan.nl/" target="_top">Generic Geometry Library (part of Boost)</a><br>
-    	<a href="http://www.cs.sunysb.edu/~algorith/major_section/1.6.shtml" target="_top">Stony-Brook Algorithms Repository</a><br>
-    	<a href="http://www.math.cmu.edu/~arand/DIR3/" target="_top">DIR3: Delaunay Incremental Refinement in 3D</a><br>
-    	<a href="http://www.ics.uci.edu/~eppstein/junkyard/" target="_top">Goemetry Junkyard</a><br>
+      <a href="https://github.com/byronknoll/visibility-polygon-js" target="_blank">visibility-polygon-js: Visibility Polygons in JS</a><br>
+    	<a href="https://www.cgal.org/2013/07/31/wipVisibility/" target="_blank">CGAL Visibility Polygons</a><br>
+    	<a href="http://www.algorithmic-solutions.com/leda/index.htm" target="_blank">LEDA: Library of Efficient Data types and Algorithms</a>; <a href="http://www.mpi-inf.mpg.de/LEDA/friends/userproj/vispak.html" target="_blank">VISPAK: Visibility algorithms in LEDA</a><br>
+    	<a href="http://msl.cs.uiuc.edu/msl/" target="_blank">MSL: Motion Strategy Library</a><br>
+    	<a href="http://robotics.stanford.edu/~mitul/mpk/" target="_blank">MPK: Motion Planning Kit</a><br>
+    	<a href="http://ares.lids.mit.edu/software/RRT%28*%29.html" target="_blank">RRT/RRT* implementation in C</a><br>
+    	<a href="http://geometrylibrary.geodan.nl/" target="_blank">Generic Geometry Library (part of Boost)</a><br>
+    	<a href="http://www.cs.sunysb.edu/~algorith/major_section/1.6.shtml" target="_blank">Stony-Brook Algorithms Repository</a><br>
+    	<a href="http://www.math.cmu.edu/~arand/DIR3/" target="_blank">DIR3: Delaunay Incremental Refinement in 3D</a><br>
+    	<a href="http://www.ics.uci.edu/~eppstein/junkyard/" target="_blank">Goemetry Junkyard</a><br>
     </p>
   </article>
 
@@ -296,7 +307,7 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     </div>
   </footer>
 
-  <script async src="js/google_analytics.js"></script>
+  <!-- <script async src="js/google_analytics.js"></script> -->
 </body>
 
 

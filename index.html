@@ -86,7 +86,7 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
       <li>visibility polygons</li>
       <li>visibility graphs</li>
       <li>Euclidean shortest paths for a point</li>
-      <li class="grey-text">Matlab, Python, and Ruby bindings  (unofficial)</li>
+      <li>Python, Ruby, and Matlab bindings</li>
     </ul>
     <p>
       Exact/arbitrary precision arithmetic is avoided and robustness is
@@ -130,18 +130,35 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
       code documentation</a>.
     </p>
 
-    <h3>Matlab</h3>
+    <h3>Python 2 and 3</h3>
     <p>
-      MEX files are included in `src/` on the GitHub repository.
-      See contributions list below for notes on use under Windows.
+      From Linux or Mac terminal,
+<pre>
+$ pip install visilibity  # resp. pip3...
+$ python  # resp. python3
+>>> import visilibity
+>>> dir(visilibity)  # Ta da!
+</pre>
+      See more instructions on running a demo at <a
+      href="https://github.com/tsaoyu/PyVisiLibity" target="_blank">Yu Cao's
+      repo</a>. I've never used these bindings beyond confirming that the demo
+      works, so I can't answer questions about them. However, if you have
+      information you would like to share, esp. how you overcame difficulties,
+      let me know and I can post it to the FAQ or contributions notes.
     </p>
 
-    <h3>Python and Ruby</h3>
+    <h3>Ruby</h3>
     <p>
-      See constributions list below to download the SWIG interfaces. I've never
+      See constributions list below to download the SWIG interface. I've never
       used these, so I can't answer questions about them. However, if you have
       information you would like to share, esp. how you overcame difficulties,
       let me know and I can post it to the FAQ or contributions notes.
+    </p>
+
+    <h3>Matlab</h3>
+    <p>
+      MEX files are included in `src/` on the main GitHub repository. See
+      contributions list below for notes on use under Windows.
     </p>
   </article>
 
@@ -163,7 +180,7 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
       <tr class="title-tr"><th>Contribution</th><th>Thanks to</th></tr>
       <tbody>
 
-      	<tr><td><a href="./use_notes/VisiLibity_Python_Bindings_with_Example.tgz" target="_blank"><b>Python Bindings with Example</b></a></td><td><a href="http://www.southampton.ac.uk/~yc6n13/" target="_blank">Yu Cao</a> of U. of Southampton, UK; Stefanie T. of MIT, United States; Ramiro C. of UNC, Argentina
+      	<tr><td><a href="https://github.com/tsaoyu/PyVisiLibity" target="_blank"><b>Python Bindings with Example</b></a></td><td><a href="http://www.southampton.ac.uk/~yc6n13/" target="_blank">Yu Cao</a> of U. of Southampton, UK; Stefanie T. of MIT, United States; Ramiro C. of UNC, Argentina
       	<tr><td><a href="http://github.com/madriska/visilibity-ruby/tree/master" target="_blank"><b>Ruby Bindings</b></a></td><td>Brad E. of Madriska Media Group, United States
       	<tr><td><a href="./use_notes/VisiLibity_Matlab_Windows.notes.txt"
       	  target="_blank"><b>Notes on Matlab Interface under
@@ -176,7 +193,6 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
       </tbody>
     </table>
     <p></p>
-
   </article>
 
   <article id="math">
@@ -307,7 +323,7 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     </div>
   </footer>
 
-  <!-- <script async src="js/google_analytics.js"></script> -->
+  <script async src="js/google_analytics.js"></script>
 </body>
 
 

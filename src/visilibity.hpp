@@ -59,11 +59,12 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
 #include <vector>
 // integrated keys
 #include <algorithm> //sorting, min, max, reverse
-#include <cassert>   //assertions
-#include <cstdlib>   //rand and srand
-#include <cstring>   //C-string manipulation
-#include <ctime>     //Unix time
-#include <fstream>   //file I/O
+#include <array>
+#include <cassert> //assertions
+#include <cstdlib> //rand and srand
+#include <cstring> //C-string manipulation
+#include <ctime>   //Unix time
+#include <fstream> //file I/O
 #include <iostream>
 #include <list>
 #include <string> //string class
@@ -984,6 +985,9 @@ public:
   Polyline(const std::vector<Point> &vertices_temp) {
     vertices_ = vertices_temp;
   }
+  /// construct from file
+  Polyline(const std::string &filename);
+
   // Accessors
   /** \brief  raw access
    *
@@ -1039,6 +1043,11 @@ public:
   void reverse();
   /// append the points from another polyline
   void append(const Polyline &polyline);
+
+  /// Compare two Polylines
+  bool operator==(const VisiLibity::Polyline &other) {
+    return vertices_ == other.vertices_;
+  }
 
 private:
   std::vector<Point> vertices_;
@@ -2050,6 +2059,71 @@ private:
 /// print Visibility_Graph adjacency matrix
 std::ostream &operator<<(std::ostream &outs,
                          const Visibility_Graph &visibility_graph);
+
+/** \brief  Utilities for writing VisiLibity unit tests
+ *
+ * \remarks  Subclass for specific kinds of tests, if necessary.
+ * \author  Will Hawkins
+ *
+ */
+class Unit_Test {
+public:
+  /**
+   * Set the precision that will be used when printing numbers to the screen
+   * through std::cout/cerr.
+   *
+   * \author  Will Hawkins
+   */
+  static void set_output_precision();
+
+  /**
+   * Seed the OS' random number generator.
+   *
+   * \author  Will Hawkins
+   */
+  static void seed_random();
+
+  /**
+   * Make a vector of points from an array of doubles.
+   *
+   * \remark  The size of \a vertices must be even.
+   * \author  Will Hawkins
+   * \return  A vector of Point objects whose size is half the size of \a vertices.
+   *
+   */
+  template <std::size_t N>
+  static std::vector<Point> make_point_vector(std::array<double, N> vertices) {
+    static_assert(N % 2 == 0,
+                  "Specify an even number of points to make a point array.");
+    std::vector<Point> point_vector{};
+    for (size_t i = 0; i < N; i += 2) {
+      point_vector.push_back(Point(vertices[i], vertices[i + 1]));
+    }
+    return point_vector;
+  }
+};
+
+/** \brief  Utilities for writing shortest path VisiLibity unit tests
+ *
+ * \author  Will Hawkins
+ *
+ */
+class Shortest_Path_Test : public Unit_Test {
+public:
+ /**
+   * Check whether an \a environment, \a epsilon, and \a guards make a valid scenario
+   * for testing shortest path calculation.
+   *
+   * In order for \a validate to return true, \a environment must be valid (see Environment::is_valid),
+   * \a guards must contain exactly two elements and they must be in \a environment and not colocated.
+   *
+   * \author  Will Hawkins
+   * \return  True or false depending upon whether the scenario meets the requirements described above.
+   *
+   */
+  static bool validate(const VisiLibity::Environment &environment,
+                       const double epsilon, const VisiLibity::Guards &guards);
+};
 
 } // namespace VisiLibity
 

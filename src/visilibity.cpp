@@ -1115,6 +1115,20 @@ Line_Segment intersection(const Line_Segment &line_segment_temp,
 
 // Polyline
 
+Polyline::Polyline(const std::string &filename) {
+  std::ifstream fin(filename.c_str());
+  assert(!fin.fail());
+
+  Point point_temp;
+  double x_temp, y_temp;
+  while (fin >> x_temp and fin >> y_temp) {
+    point_temp.set_x(x_temp);
+    point_temp.set_y(y_temp);
+    vertices_.push_back(point_temp);
+  }
+  fin.close();
+}
+
 double Polyline::length() const {
   double length_temp = 0;
   for (unsigned i = 1; i <= vertices_.size() - 1; i++)
@@ -3155,6 +3169,112 @@ std::ostream &operator<<(std::ostream &outs,
   }
 
   return outs;
+}
+
+bool Shortest_Path_Test::validate(const VisiLibity::Environment &environment,
+                                  const double epsilon,
+                                  const VisiLibity::Guards &guards) {
+  // ASCII escape sequences for colored terminal text.
+  std::string alert("\a");       // Beep
+  std::string normal("\x1b[0m"); // Designated fg color default bg color
+  std::string red("\x1b[31m");
+  std::string red_blink("\x1b[5;31m");
+  std::string black("\E[30;47m");
+  std::string green("\E[32m");
+  std::string yellow("\E[33;40m");
+  std::string blue("\E[34;47m");
+  std::string magenta("\x1b[35m");
+  std::string cyan("\E[36m");
+  std::string white_bold("\E[1;37;40m");
+  std::string clear_display("\E[2J");
+
+  // Check Environment is epsilon-valid
+  std::cout << "Validating environment model . . . ";
+  if (environment.is_valid(epsilon))
+    std::cout << green << "OK" << normal << std::endl;
+  else {
+    std::cout << std::endl
+              << red << "Error:  Environment model "
+              << "is invalid." << std::endl
+              << "A valid environment model must have" << std::endl
+              << "   1) outer boundary and holes pairwise "
+              << "epsilon -disjoint simple polygons" << std::endl
+              << "   (no two features should come "
+              << "within epsilon of each other)," << std::endl
+              << "   2) outer boundary is oriented ccw, and" << std::endl
+              << "   3) holes are oriented cw." << std::endl
+              << normal;
+    return false;
+  }
+
+  // For the shortest path calculation tests, there must be two guards: the
+  // start guard and the finish guard.
+  std::cout << "Checking that there are exactly two guards ... ";
+  if (guards.N() != 2)
+    return false;
+  else
+    std::cout << green << "OK" << normal << std::endl;
+
+  // Check Guards are all in the Environment
+  std::cout << "Checking all guards are "
+            << "in the environment and noncolocated . . . ";
+
+  for (unsigned i = 0; i < guards.N(); i++) {
+    if (!guards[i].in(environment, epsilon)) {
+      std::cout << std::endl
+                << red << "Error:  guard " << i << " not in the environment."
+                << normal << std::endl;
+      return false;
+    }
+  }
+  if (!guards.noncolocated(epsilon)) {
+    std::cout << std::endl
+              << red << "Error:  Some guards are colocated." << normal
+              << std::endl;
+    return false;
+  } else
+    std::cout << green << "OK" << normal << std::endl;
+
+  // All checking is done and things are okay. Let's just print some things to the screen.
+
+  // Print environment data
+  std::cout << "The environment model is:" << std::endl;
+  std::cout << magenta << environment << normal;
+
+  // Print environment stats
+  std::cout << "This environment has " << cyan << environment.n()
+            << " vertices, " << environment.r() << " reflex vertices, "
+            << environment.h() << " holes, "
+            << "area " << environment.area() << ", "
+            << "boundary length " << environment.boundary_length() << ", "
+            << "diameter " << environment.diameter() << "." << normal
+            << std::endl;
+
+  // print guards data
+  std::cout << "The guards' positions are:" << std::endl;
+  std::cout << magenta << guards << normal;
+
+  // print guards stats
+  std::cout << "There are " << cyan << guards.N() << " guards." << normal
+            << std::endl;
+
+  // Printing done, return true to indicate that everything validated.
+  return true;
+}
+
+void Unit_Test::set_output_precision() {
+  // Set iostream floating-point display format
+  const int IOS_PRECISION = 10;
+  std::cout.setf(std::ios::fixed);
+  std::cout.setf(std::ios::showpoint);
+  std::cout.precision(IOS_PRECISION);
+};
+
+void Unit_Test::seed_random() {
+  // Seed the rand() fnc w/Unix time
+  //(only necessary once at the beginning of the program)
+  std::srand(std::time(NULL));
+  rand();
 }
 
 } // namespace VisiLibity

@@ -1,0 +1,14 @@
+//Environment Model
+//Outer Boundary x-y coordinates listed counterclockwise
+0.0 0.0
+10.0 0.0
+10.0 10.0
+0.0 10.0
+//Hole x-y coordinates listed clockwise
+2.0 2.0
+2.0 3.0
+4.0 3.0
+///////
+7.0 3.0
+6.0 4.0
+8.0 5.0

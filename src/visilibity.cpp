@@ -2011,10 +2011,6 @@ Polyline Environment::shortest_path(const Point &start, const Point &finish,
         Q.insert(*children_itr);
       }
 
-      // If not already visited, insert into Q
-      if (!child_already_visited)
-        Q.insert(*children_itr);
-
       if (PRINTING_DEBUG_DATA) {
         std::cout << "child already visited? " << child_already_visited
                   << std::endl;

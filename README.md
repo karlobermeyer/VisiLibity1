@@ -127,7 +127,23 @@ Description: a subroutine of `visibiity_polygon_demonstration.m` and
 `shortest_path_demo.m` used to read a VisiLibity style Environment file into a
 Matlab cell array.
 
+## Testing
+Testing frameworks are available for visibility polygon and shortest path
+calculations.
 
+### Visibility polygon calculation testing
+TBD
+
+### Shortest path calculation testing
+
+The script `test_shortest_path.sh` will execute all the tests in the `shortest_path_tests` (by default) directory.
+
+Every test requires three files:
+1. `<name>.environment`: The environment in which to find a shortest path between two points. Specify this like any other environment file.
+2. `<name>.guards`: The location of 2 (two) points in the environment and not in a hole. The first point is the start point and the second point is the end point. The test will calculate the shortest path between those points with respect to the environment defined in `<name>.environment`.
+3. `<name>.result`: The vertices of the shortest path between the points defined in <name>.guards in the environment defined in `<name>.environment`.
+
+The test passes when the path specified in the result file matches the path actually calculated by VisiLibity.
 
 ## License
 

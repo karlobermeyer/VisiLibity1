@@ -1531,7 +1531,7 @@ private:
   std::vector<Polygon> holes_;
   // allows constant time access to vertices via operator () with
   // flattened index as argument
-  std::vector<std::pair<unsigned, unsigned>> flattened_index_key_;
+  std::vector<std::pair<unsigned, unsigned> > flattened_index_key_;
   // Must call if size of outer_boundary and/or holes_ changes.  Time
   // complexity O(n), where n is the number of vertices representing
   // the Environment.
@@ -2095,7 +2095,7 @@ public:
   static std::vector<Point> make_point_vector(std::array<double, N> vertices) {
     static_assert(N % 2 == 0,
                   "Specify an even number of points to make a point array.");
-    std::vector<Point> point_vector{};
+    std::vector<Point> point_vector;
     for (size_t i = 0; i < N; i += 2) {
       point_vector.push_back(Point(vertices[i], vertices[i + 1]));
     }

@@ -150,16 +150,16 @@ The test passes when the path specified in the result file matches the path actu
 VisiLibity:  A Floating-Point Visibility Algorithms Library Copyright (C) 2008
 Karl J. Obermeyer (karl.obermeyer@gmail.com)
 
-This file is part of VisiLibity.
+This file is part of VisiLibity v1.
 
-VisiLibity is free software: you can redistribute it and/or modify it under the
-terms of the GNU Lesser General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
+VisiLibity v1 is free software: you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
 
-VisiLibity is distributed in the hope that it will be useful, but WITHOUT ANY
+VisiLibity v1 is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with VisiLibity.  If not, see  <http://www.gnu.org/licenses/>.
+with VisiLibity v1.  If not, see  <http://www.gnu.org/licenses/>.

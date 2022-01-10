@@ -4,23 +4,23 @@
  * \date March 20, 2008
  *
 \remarks
-VisiLibity:  A Floating-Point Visibility Algorithms Library,
+VisiLibity1: A Floating-Point Visibility Algorithms Library,
 Copyright (C) 2008  Karl J. Obermeyer (karl.obermeyer [ at ] gmail.com)
 
-This file is part of VisiLibity.
+This file is part of VisiLibity1.
 
-VisiLibity is free software: you can redistribute it and/or modify it under
+VisiLibity1 is free software: you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-VisiLibity is distributed in the hope that it will be useful, but WITHOUT
+VisiLibity1 is distributed in the hope that it will be useful, but WITHOUT
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
 License for more details.
 
 You should have received a copy of the GNU Lesser General Public
-License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
+License along with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "visilibity.hpp" //VisiLibity header
@@ -42,7 +42,7 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
 /// Hide helping functions in unnamed namespace (local to .C file).
 namespace {}
 
-/// VisiLibity's sole namespace
+/// VisiLibity1's sole namespace
 namespace VisiLibity {
 
 double uniform_random_sample(double lower_bound, double upper_bound) {

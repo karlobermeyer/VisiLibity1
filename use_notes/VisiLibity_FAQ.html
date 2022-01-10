@@ -1,93 +1,137 @@
 <!doctype html>
 <html lang="en">
 
+<!--
+Copyright (C) 2018  Karl J. Obermeyer
+
+This file is part of VisiLibity1.
+
+VisiLibity1 is free software: you can redistribute it and/or modify it under the
+terms of the GNU Lesser General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+VisiLibity1 is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along
+with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
+-->
 
 <head>
-  <title> VisiLibity Frequently Asked Questions </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> VisiLibity1 Frequently Asked Questions </title>
+  <meta name="author" content="Karl J. Obermeyer">
+  <meta name="description" content="VisiLibity1 FAQ (Frequently Asked Questions)">
+  <meta name="keywords" content="visilibity1, FAQ, frequently asked quesitons">
+  <link rel="shortcut icon" href="../favicons/o.ico">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/faq.css">
 </head>
 
 
 <body>
 
-<h1> VisiLibity Frequently Asked Questions </h1>
+<header>
+  <h1> VisiLibity1 Frequently Asked Questions </h1>
+</header>
 
+<div class="content">
 
-<br><h3>I am getting computation errors.  What should I do?</h3>
+  <div class="weak-page-separator-div"></div>
 
-Programs may crash if (1) the robustness constant &epsilon is chosen
-poorly, or (2) the environment model is not &epsilon -valid (see
-answer to next question).  Before reporting a bug, try varying
-&epsilon by a few orders of magnitude in both directions or checking
-evironment &epsilon -validity using the Enviroment::is_valid method.
-Note &epsilon should never be set to zero except when performing
-certain debugging procedures on the VisiLibity code itself.  To start,
-try setting &epsilon to a number a couple orders of magnitude smaller
-than the smallest featrure in the environment, e.g., double &epsilon =
-0.0000001; This means you must include an &epsilon in all function
-calls, i.e., do not use the default argument &epsilon=0.0.  For
-example, you need to add &epsilon at Visibility_Polygon(observer, env,
-epsilon).
+  <article>
+    <h3>I am getting computation errors.  What should I do?</h3>
+    <p>
+      Programs may crash if (1) the robustness constant &epsilon; is chosen
+      poorly, or (2) the environment model is not &epsilon;-valid (see answer to
+      next question). Before reporting a bug, try varying &epsilon; by a few
+      orders of magnitude in both directions or checking evironment
+      &epsilon;-validity using the
+      <code>Environment::is_valid</code> method. Note &epsilon; should never be
+      set to 0.0 except when performing certain debugging procedures on the
+      VisiLibity code itself. To start, try setting &epsilon; to a number a few
+      orders of magnitude smaller than the smallest feature in the environment.
+      For example, if the closest distance between any vertices is 0.01, try
+      <code>double epsilon = 0.0000001;</code>. This means you must include an
+      &epsilon; in all function calls, i.e., do not use the default argument
+      &epsilon;=0.0. For example, you need to add &epsilon; at
+      <code>Visibility_Polygon(observer, environment, epsilon)</code>.
+    </p>
+  </article>
 
+  <div class="weak-page-separator-div"></div>
 
-<br><br><h3> Will VisiLibity work for polygonal environments where the
-edges of distinct polygons intersect?</h3>
+  <article>
+    <h3> Will VisiLibity work for polygonal environments where the edges of
+    distinct polygons intersect?</h3>
 
-No, VisiLibity R-1 is not meant to operate on environments where edges
-of distinct polygons intersect.  For correctness of computation, in
-addition to choosing suitable &epsilon, the environment must be ``
-&epsilon -valid''.  This can be checked using the
-Environment::is_valid() method.  An environment is &epsilon -valid if
-none of its outer boundary or holes intersect each other, and there is
-a distance at least &epsilon between any features (vertices and
-edges), and there can be no redundant vertices (e.g. don't list the
-first vertex redundantly also as the last) in the polygon vertex
-lists.
+    <p>
+      No, VisiLibity1 is not meant to operate on environments where edges of
+      distinct polygons intersect. For correctness of computation, in addition to
+      choosing suitable &epsilon;, the environment must be
+      <em>&epsilon;-valid</em>. This can be checked using the
+      Environment::is_valid() method. An environment is &epsilon;-valid if none of
+      its outer boundary or holes intersect each other, there is a distance at
+      least &epsilon; between any features (vertices and edges), and there can be
+      no redundant vertices (e.g. don't list the first vertex redundantly also as
+      the last) in the polygon vertex lists.
 
-<!-- Real GIS data sets may have many overlapping polygons
-representing buildings.  Although I have not implemented it, it is
-possible to robustly compute shortest paths with such environments,
-but at the expense of slower computation time.  I plan to fix this in
-the next version of VisiLibity.  The software is not intended to work
-with polygons that overlap (nor that self-intersect).  The Environment
-must be &epsilon -valid for an &epsilon reasonably larger than machine
-precision, which can be checked by the method
-VisiLibity::Environment::is_valid as defined in the documentation:-->
+    </p>
 
-<p>
-If your environment is not &epsilon -valid and you want VisiLibity to
-work for your application, then you must perform preprocessing to
-enforce &epsilon -validity.  I plan to remove the &epsilon -validity
-precondition in the next version of VisiLibity; until then I
-appologize for the inconvenience.
+    <!-- Real GIS data sets may have many overlapping polygons representing
+      buildings. Although we have not implemented it, it is possible to robustly
+      compute shortest paths with such environments, but at the expense of slower
+      computation time. we plan to fix this in the next version of VisiLibity. The
+      software is not intended to work with polygons that overlap (nor that
+      self-intersect). The Environment must be &epsilon;-valid for an &epsilon;
+      reasonably larger than machine precision, which can be checked by the method
+      VisiLibity::Environment::is_valid as defined in the documentation:-->
+    <p>
+      If your environment is not &epsilon;-valid and you want VisiLibity to work
+      for your application, then you must perform preprocessing to enforce
+      &epsilon;-validity. We may remove the &epsilon;-validity precondition in a
+      future version of VisiLibity.
+    </p>
+  </article>
 
+  <div class="weak-page-separator-div"></div>
 
-<br><br><h3>Should I cache a Visibility_Graph if I'm performing many
-shortest path queries in the same Environment?</h3>
+  <article>
+    <h3>Should I cache a <code>Visibility_Graph</code> if I'm performing many
+    shortest path queries in the same Environment?</h3>
 
-Yes.  Here's how:
-<br>
-1) Define a small &epsilon like this:
+    Yes. Here's how:
+    <br>
+    <pre>
+// Define a small epsilon. This is very important, otherwise there are
+// robustness/degeneracy problems.
 double epsilon = 0.000000001;
-This is very important, otherwise there are robustness/degeneracy problems.
-<br>
-2) Construct your environment like this:
-VisiLibity::Environment environment( filename );
-<br>
-2) Construct the visibility graph like this:
-VisiLibity::Visibility_Graph visibility_graph( environment, epsilon );
-<br>
-3) Make path queries like this:
-Polyline path = environment.shortest_path( startpoint, endpoint, visibility_graph, epsilon );
 
+// Construct environment.
+VisiLibity::Environment environment(filename);
 
-<br><br><h3>I am unable to compile VisiLibity under Microsoft Windows.
-What should I do?</h3>
+// Construct the visibility graph.
+VisiLibity::Visibility_Graph visibility_graph(environment, epsilon);
 
-VisiLibity R-1 uses definitions which do not exist in the Microsoft
-Visual Studio compilers.  To add these definitions, uncomment these
-lines in the header visilibity.hpp
+// Make path queries.
+Polyline path = environment.shortest_path(startpoint, endpoint, visibility_graph, epsilon);
+    </pre>
+  </article>
 
-<pre>
+  <div class="weak-page-separator-div"></div>
+
+  <article>
+    <h3>I am unable to compile VisiLibity under Microsoft Windows. What should I
+    do?</h3>
+
+      VisiLibity1 uses definitions which do not exist in the Microsoft Visual Studio
+      compilers. To add these definitions, uncomment these lines in the header
+      <code>visilibity.hpp</code>.
+
+      <pre>
 //Uncomment these lines when compiling under
 //Microsoft Visual Studio
 /*
@@ -98,23 +142,39 @@ lines in the header visilibity.hpp
 #define and &&
 #define or ||
 */
-</pre>
+      </pre>
+      <br>
+      Alternatively, you could get a Gnu compiler working on your machine.
+      Some helpful hints on getting a Gnu complier running on a Windows
+      machine can be found under <A
+      href="./VisiLibity_Matlab_Windows.notes.txt">Notes on Matlab
+      Interface under Windows</A>.
+  </article>
 
-Alternatively, you could get a Gnu compiler working on your machine.
-Some helpful hints on getting a Gnu complier running on a Windows
-machine can be found under <A
-href="./VisiLibity_Matlab_Windows.notes.txt">Notes on Matlab
-Interface under Windows</A>.
+  <div class="weak-page-separator-div"></div>
 
+  <article>
+    <h3> How do I make VisiLibity work on a 64-bit machine?</h3>
 
-<br><br><h3> How do I make VisiLibity work on a 64-bit machine?</h3>
+    To compile VisiLibity on a pure 64-bit system, add -fPIC to the
+    CXXFLAGS in the makefile. Also, if Matlab does not link to the
+    correct libraries, try changing the symlinks in
+    <code>/usr/local/MATLAB/R2010b/sys/os/glnxa64/</code> to the correct ones in
+    <code>/usr/lib/</code>.
+  </article>
 
-To compile VisiLibity on a pure 64-bit system, add -fPIC to the
-CXXFLAGS in the makefile.  Also, if Matlab does not link to the
-correct libraries, try changing the symlinks in
-/usr/local/MATLAB/R2010b/sys/os/glnxa64/ to the correct ones in
-/usr/lib/
+  <br><br>
 
+  <div class="weak-page-separator-div"></div>
+
+</div>
+
+<footer>
+  <div class="copyright">
+    &copy;&nbsp;<script>document.write(new Date().getFullYear());</script>
+    <a href="../index.html">Karl&nbsp;J. Obermeyer</a>
+  </div>
+</footer>
 
 </body>
 

@@ -4,32 +4,31 @@
 <!--
 Copyright (C) 2018  Karl J. Obermeyer
 
-This file is part of VisiLibity.
+This file is part of VisiLibity1.
 
-VisiLibity is free software: you can redistribute it and/or modify it under
-the terms of the GNU Lesser General Public License as published by the
-Free Software Foundation, either version 3 of the License, or (at your
-option) any later version.
+VisiLibity1 is free software: you can redistribute it and/or modify it under the
+terms of the GNU Lesser General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-VisiLibity is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
-License for more details.
+VisiLibity1 is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.
 
-You should have received a copy of the GNU Lesser General Public
-License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU Lesser General Public License along
+with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VisiLibity1</title>
-<meta name="author" content="Karl J. Obermeyer">
-<meta name="description" content="Free open-source C++ library for visibility computations in planar polygonal environments.">
-<meta name="keywords" content="computational geometry, visibility, visibility polygon, viewshed, isovist, visibility graph, euclidean shortest path">
-<link rel="shortcut icon" href="favicons/o.ico">
-<link rel="stylesheet" href="css/normalize.css">
-<link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisiLibity1</title>
+  <meta name="author" content="Karl J. Obermeyer">
+  <meta name="description" content="Free open-source C++ library for visibility computations in planar polygonal environments.">
+  <meta name="keywords" content="computational geometry, visibility, visibility polygon, viewshed, isovist, visibility graph, euclidean shortest path">
+  <link rel="shortcut icon" href="favicons/o.ico">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 
@@ -69,11 +68,11 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     <p>
       VisiLibity1 is a free open source C++ library for 2D floating-point
       visibility algorithms, path planning, and supporting data types. It is
-      intended for use in robot and sensor network design software.  Other
+      intended for use in robot and sensor network design software. Other
       possible applications include, e.g., manufacturing, facility location,
       architectural/urban planning, games, and education. The entire library
-      consists only of a single compilation unit (one .hpp + one
-      .cpp file) with no dependence on 3rd party libraries. It is
+      consists only of a single compilation unit (one <code>.hpp</code> + one
+      <code>.cpp</code> file) with no dependence on 3rd party libraries. It is
       therefore suitable for applications where simple visibility and path
       planning computations are needed but the power of a larger computational
       geometry library is not necessary.
@@ -90,9 +89,9 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     </ul>
     <p>
       Exact/arbitrary precision arithmetic is avoided and robustness is
-      achieved by considering two points to be colocated whenever the Euclidean
-      distance between them is less or equal to a user defined tolerance
-      &epsilon; called the <i>robustness constant</i>.  If the robustness
+      achieved by considering 2 points to be colocated whenever the Euclidean
+      distance between them is less or equal to a user-defined tolerance
+      &epsilon; called the <em>robustness constant</em>.  If the robustness
       constant is chosen poorly or the scale of environment features varies too
       dramatically, library functions can and will return errors.  However,
       provided the user tunes the robustness constant appropriately, we find
@@ -119,10 +118,10 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     <h3>C++</h3>
     <p>
     To use VisiLibity1 in your C++ program,<br>
-      &nbsp;&nbsp;1. Clone the <a href="https://github.com/karlobermeyer/VisiLibity1" target="_blank">git repo</a> and read README.md,<br>
-      &nbsp;&nbsp;2. Place an #include "visilibity.hpp" directive at the beginning of
+      &nbsp;&nbsp;1. Clone the <a href="https://github.com/karlobermeyer/VisiLibity1" target="_blank">git repo</a> and read <code>README.md</code>,<br>
+      &nbsp;&nbsp;2. Place an <code>#include "visilibity.hpp"</code> directive at the beginning of
       your program, and<br>
-      &nbsp;&nbsp;3. Link your program with visilibity.cpp when compiling.<br>
+      &nbsp;&nbsp;3. Link your program with <code>visilibity.cpp</code> when compiling.<br>
     </p>
 
     <p>
@@ -133,12 +132,14 @@ License along with VisiLibity.  If not, see <http://www.gnu.org/licenses/>.
     <h3>Python 2 and 3</h3>
     <p>
       From Linux or Mac terminal,
+    </p>
 <pre>
 $ pip install visilibity  # resp. pip3...
 $ python  # resp. python3
 >>> import visilibity
 >>> dir(visilibity)  # Ta da!
 </pre>
+    <p>
       See more instructions on running a demo at <a
       href="https://github.com/tsaoyu/PyVisiLibity" target="_blank">Yu Cao's
       repo</a>. I've never used these bindings beyond confirming that the demo
@@ -169,11 +170,11 @@ $ python  # resp. python3
       href="https://karlobermeyer.github.io" target="_blank"><u>me</u></a> an
       email with subject line of the form "VisiLibity1: ...". This project is
       entirely volunteer work and I have many other demands on my time, so
-      please forgive slow responses. Be sure to check <a
-      href="./use_notes/VisiLibity_FAQ.html" target="_blank"><b>Frequently
-      Asked Questions</b></a> before emailing a question. Any other comments
-      you have are also very welcome, e.g., on what your application is,
-      overall architecture of the library, or possible future functionality.
+      please forgive slow responses. Be sure to check the <a
+      href="./use_notes/VisiLibity_FAQ.html" target="_blank"><b>FAQ</b></a>
+      before emailing a question. Other comments you have are also welcome,
+      e.g., on what your application is, overall architecture of the library, or
+      possible future functionality.
     </p>
 
     <table>
@@ -198,16 +199,17 @@ $ python  # resp. python3
   <article id="math">
     <h2 class="article-title">Math</h2>
     <p>
-      VisiLibity uses the C++ double type.  In this floating-point system, a
+      VisiLibity1 uses the C++ double type.  In this floating-point system, a
       discrete string of bits represents a number from the continuum of real
       numbers.  One indicator of how precisely a floating point system can
-      represent a real number is the <i>machine epsilon</i> (aka <i>machine
-      precision</i> or <i>unit roundoff</i>) defined as the difference between
-      1 and the smallest exactly representable number greater than one.  In the
-      IEEE 754 Standard for Binary Floating-Point Arithmetic, machine epsilon
-      for <i>double precision</i> on a 32-bit machine is 2^-52 (roughly
-      2.22x10^-16). Despite this small value, it is well known that the inexact
-      nature of floating-point representation can lead to many problems, e.g.,
+      represent a real number is the <em>machine epsilon</em> (aka <em>machine
+      precision</em> or <em>unit roundoff</em>) defined as the difference
+      between 1 and the smallest exactly representable number greater than one.
+      In the IEEE 754 Standard for Binary Floating-Point Arithmetic, machine
+      epsilon for <em>double precision</em> on a 32-bit machine is
+      2<sup>-52</sup> (roughly 2.22x10<sup>-16</sup>). Despite this small value,
+      it is well known that the inexact nature of floating-point representation
+      can lead to many problems, e.g.,
     </p>
   	<ul>
   	   <li>overflow, underflow, round-off error</li>
@@ -222,31 +224,31 @@ $ python  # resp. python3
     <p>
     	More details on problems associated with floating-point
     	arithmetic can be found, e.g., in <a
-    	href="http://dlc.sun.com/pdf/800-7895/800-7895.pdf" target="_blank">``What
+    	href="http://dlc.sun.com/pdf/800-7895/800-7895.pdf" target="_blank">"What
     	Every Computer Scientist Should Know About Floating Point
     	Arithmetic"</a>.
     </p>
     <p>
     	So why use floating-point arithmetic?
     	As <a href="http://cs.nyu.edu/cs/faculty/yap/" target="_blank">Chee
-    	K. Yap</a> wrote in the ``Handbook of Discrete and Computational
+    	K. Yap</a> wrote in the "Handbook of Discrete and Computational
     	Geometry" (2nd Edition, p. 930),
     </p>
   	<blockquote>
-      <i>
+      <em>
         "...fast floating-point hardware has become a de facto standard in
         every computer. If we can make our geometric algorithms robust within
         machine arithmetic, we are assured of the fastest possible
         implementation..."
-    	</i>
+    	</em>
     </blockquote>
     <p>
-    	To achieve robustness using floating-point arithmetic, VisiLibity
+    	To achieve robustness using floating-point arithmetic, VisiLibity1
     	operates using a technique called &epsilon;-geometry (AKA interval
     	geometry) in which geometric primitives are fattened by very small
-    	amount &epsilon;.  This involves the use of <i>fuzzy comparisons</i> in
+    	amount &epsilon;.  This involves the use of <em>fuzzy comparisons</em> in
     	which equality tests such as x==y are replaced by fabs(x-y) &#8804;
-    	&epsilon;.  When using VisiLibity, &epsilon; should typically be chosen
+    	&epsilon;.  When using VisiLibity1, &epsilon; should typically be chosen
     	somewhere between machine epsilon and the smallest dimension of any
     	feature in the environment geometry at hand.
     	<!--We are currenly working on more rigorous ways to choose &epsilon;
@@ -255,8 +257,9 @@ $ python  # resp. python3
     </p>
 
     <p>
-    	The algorithms and methods used in VisiLibity come mostly from these
-    	sources: <a href="./VisiLibity.bib" target="_blank">VisiLibity.bib</a>
+    	The algorithms and methods used in VisiLibity1 come mostly from these
+    	sources: <a href="./VisiLibity.bib"
+    	target="_blank"><code>VisiLibity.bib</code></a>
     	(BibTeX file)
 
     	<!--
@@ -284,7 +287,7 @@ $ python  # resp. python3
   <article id="license">
     <h2 class="article-title">License</h2>
     <p>
-      VisiLibity is licensed under version 3 of the <a
+      VisiLibity1 is licensed under version 3 of the <a
       href="http://www.gnu.org/licenses/" target="_blank">GNU Lesser General Public
       License</a>.
     </p>
@@ -292,14 +295,14 @@ $ python  # resp. python3
   	are in the <a
   	href="http://creativecommons.org/licenses/publicdomain/"
   	target="_blank">PUBLIC DOMAIN</a>.<br> Images you produce with
-  	VisiLibity are your property.<br> -->
+  	VisiLibity1 are your property.<br> -->
   </article>
 
   <article id="links">
     <h2 class="article-title">Links</h2>
     <p>
       Here are some other software packages you may find useful, though none
-      of these are officially associated with VisiLibity.
+      of these are officially associated with VisiLibity1.
     </p>
     <p>
       <a href="https://github.com/byronknoll/visibility-polygon-js" target="_blank">visibility-polygon-js: Visibility Polygons in JS</a><br>
@@ -323,7 +326,7 @@ $ python  # resp. python3
     </div>
   </footer>
 
-  <script async src="js/google_analytics.js"></script>
+  <!-- <script async src="js/google_analytics.js"></script> -->
 </body>
 
 

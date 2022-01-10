@@ -3,29 +3,29 @@
  * \authors Karl J. Obermeyer
  * \date March 20, 2008
  *
-VisiLibity1: A Floating-Point Visibility Algorithms Library,
+VisiLibity: A Floating-Point Visibility Algorithms Library,
 Copyright (C) 2008  Karl J. Obermeyer (karl.obermeyer [ at ] gmail.com)
 
-This file is part of VisiLibity1.
+This file is part of VisiLibity v1.
 
-VisiLibity1 is free software: you can redistribute it and/or modify it under
+VisiLibity v1 is free software: you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation, either version 3 of the License, or (at your
 option) any later version.
 
-VisiLibity1 is distributed in the hope that it will be useful, but WITHOUT
+VisiLibity v1 is distributed in the hope that it will be useful, but WITHOUT
 ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
 License for more details.
 
 You should have received a copy of the GNU Lesser General Public
-License along with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
+License along with VisiLibity v1.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 /**
  * \mainpage
  * <center>
- * see also the <a href="../index.html">VisiLibity1 Project Page</a>
+ * see also the <a href="../index.html">VisiLibity v1 Project Page</a>
  * </center>
  * <b>Authors</b>:  Karl J. Obermeyer and contributors
  * <hr>
@@ -69,7 +69,7 @@ License along with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
 #include <list>
 #include <string> //string class
 
-/// VisiLibity1's sole namespace
+/// VisiLibity's sole namespace
 namespace VisiLibity {
 
 // Fwd declaration of all classes and structs serves as index.

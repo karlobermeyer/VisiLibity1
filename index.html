@@ -4,19 +4,20 @@
 <!--
 Copyright (C) 2018  Karl J. Obermeyer
 
-This file is part of VisiLibity1.
+This file is part of VisiLibity v1.
 
-VisiLibity1 is free software: you can redistribute it and/or modify it under the
-terms of the GNU Lesser General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
+VisiLibity v1 is free software: you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
 
-VisiLibity1 is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.
+VisiLibity v1 is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+details.
 
 You should have received a copy of the GNU Lesser General Public License along
-with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
+with VisiLibity v1.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
 <head>
@@ -66,7 +67,7 @@ with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
   <article id="about">
     <h2 class="article-title">About</h2>
     <p>
-      VisiLibity1 is a free open source C++ library for 2D floating-point
+      VisiLibity is a free open source C++ library for 2D floating-point
       visibility algorithms, path planning, and supporting data types. It is
       intended for use in robot and sensor network design software. Other
       possible applications include, e.g., manufacturing, facility location,
@@ -78,7 +79,7 @@ with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
       geometry library is not necessary.
     </p>
     <p>
-      <b>Current Functionality of VisiLibity1</b> in planar polygonal
+      <b>Current Functionality of VisiLibity v1</b> in planar polygonal
       environments with polygonal holes:
     </p>
     <ul>
@@ -102,7 +103,7 @@ with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
   <article id="using">
     <h2 class="article-title">Using</h2>
     <p>
-    	When possible, please <b>cite VisiLibity1</b>.  For your convenience,
+    	When possible, please <b>cite VisiLibity</b>.  For your convenience,
     	here is a BibTeX item
     </p>
 <pre>
@@ -112,12 +113,12 @@ with VisiLibity1.  If not, see <http://www.gnu.org/licenses/>.
     Polygonal Environments},
   howpublished = {\texttt{http://www.VisiLibity.org}},
   year = 2008,
-  note = {R-1},
+  note = {v1},
 }
 </pre>
     <h3>C++</h3>
     <p>
-    To use VisiLibity1 in your C++ program,<br>
+    To use VisiLibity in your C++ program,<br>
       &nbsp;&nbsp;1. Clone the <a href="https://github.com/karlobermeyer/VisiLibity1" target="_blank">git repo</a> and read <code>README.md</code>,<br>
       &nbsp;&nbsp;2. Place an <code>#include "visilibity.hpp"</code> directive at the beginning of
       your program, and<br>
@@ -199,7 +200,7 @@ $ python  # resp. python3
   <article id="math">
     <h2 class="article-title">Math</h2>
     <p>
-      VisiLibity1 uses the C++ double type.  In this floating-point system, a
+      VisiLibity uses the C++ double type.  In this floating-point system, a
       discrete string of bits represents a number from the continuum of real
       numbers.  One indicator of how precisely a floating point system can
       represent a real number is the <em>machine epsilon</em> (aka <em>machine
@@ -243,12 +244,12 @@ $ python  # resp. python3
     	</em>
     </blockquote>
     <p>
-    	To achieve robustness using floating-point arithmetic, VisiLibity1
+    	To achieve robustness using floating-point arithmetic, VisiLibity
     	operates using a technique called &epsilon;-geometry (AKA interval
     	geometry) in which geometric primitives are fattened by very small
     	amount &epsilon;.  This involves the use of <em>fuzzy comparisons</em> in
     	which equality tests such as x==y are replaced by fabs(x-y) &#8804;
-    	&epsilon;.  When using VisiLibity1, &epsilon; should typically be chosen
+    	&epsilon;.  When using VisiLibity, &epsilon; should typically be chosen
     	somewhere between machine epsilon and the smallest dimension of any
     	feature in the environment geometry at hand.
     	<!--We are currenly working on more rigorous ways to choose &epsilon;
@@ -257,7 +258,7 @@ $ python  # resp. python3
     </p>
 
     <p>
-    	The algorithms and methods used in VisiLibity1 come mostly from these
+    	The algorithms and methods used in VisiLibity come mostly from these
     	sources: <a href="./VisiLibity.bib"
     	target="_blank"><code>VisiLibity.bib</code></a>
     	(BibTeX file)
@@ -279,7 +280,7 @@ $ python  # resp. python3
   <article id="acknowledgements">
     <h2 class="article-title">Acknowledgements</h2>
     <p>
-      VisiLibity1 was developed originally as part of research funded by NSF
+      VisiLibity v1 was developed originally as part of research funded by NSF
       award 0626457 and ARO award W911NF-05-1-0219.
     </p>
   </article>
@@ -287,7 +288,7 @@ $ python  # resp. python3
   <article id="license">
     <h2 class="article-title">License</h2>
     <p>
-      VisiLibity1 is licensed under version 3 of the <a
+      VisiLibity v1 is licensed under version 3 of the <a
       href="http://www.gnu.org/licenses/" target="_blank">GNU Lesser General Public
       License</a>.
     </p>
@@ -295,14 +296,14 @@ $ python  # resp. python3
   	are in the <a
   	href="http://creativecommons.org/licenses/publicdomain/"
   	target="_blank">PUBLIC DOMAIN</a>.<br> Images you produce with
-  	VisiLibity1 are your property.<br> -->
+  	VisiLibity v1 are your property.<br> -->
   </article>
 
   <article id="links">
     <h2 class="article-title">Links</h2>
     <p>
       Here are some other software packages you may find useful, though none
-      of these are officially associated with VisiLibity1.
+      of these are officially associated with VisiLibity.
     </p>
     <p>
       <a href="https://github.com/byronknoll/visibility-polygon-js" target="_blank">visibility-polygon-js: Visibility Polygons in JS</a><br>

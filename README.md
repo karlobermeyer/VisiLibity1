@@ -1,4 +1,4 @@
-# VisiLibity Release 1
+# VisiLibity v1
 
 A C++ Library for Planar Visibility Computations
 

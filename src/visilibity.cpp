@@ -682,7 +682,7 @@ double distance(const Line_Segment &line_segment1,
   assert(line_segment1.size() > 0 and line_segment2.size() > 0);
 
   if (intersect_proper(line_segment1, line_segment2))
-    return 0;
+    return 0.0;
   // But if two line segments intersect improperly, the distance
   // between them is equal to the minimum of the distances between
   // all 4 endpoints_ and their respective projections onto the line
@@ -734,12 +734,12 @@ bool intersect_proper(const Line_Segment &line_segment1,
   if (line_segment1.size() == 0 or line_segment2.size() == 0)
     return false;
 
-  // Declare new vars just for readability.
+  // Auxiliary vars for readability.
   Point a(line_segment1.first());
   Point b(line_segment1.second());
   Point c(line_segment2.first());
   Point d(line_segment2.second());
-  // First find the minimum of the distances between all 4 endpoints_
+  // First find the minimum of the distances between all 4 endpoints
   // and their respective projections onto the opposite line segment.
   double running_min, distance_temp;
   running_min = distance(a, line_segment2);
@@ -757,7 +757,7 @@ bool intersect_proper(const Line_Segment &line_segment1,
   if (running_min <= epsilon)
     return false;
   // This test is from O'Rourke's "Computational Geometry in C",
-  // p.30.  Checks left and right turns.
+  // p.30. Checks left and right turns.
   if (cross(b - a, c - b) * cross(b - a, d - b) < 0 and
       cross(d - c, b - d) * cross(d - c, a - d) < 0)
     return true;

@@ -674,14 +674,13 @@ bool intersect_proper(const Line_Segment &line_segment1,
  *
  * \author  Karl J. Obermeyer
  * \return a Line_Segment of size 0, 1, or 2
- * \remarks  size 0 results if the distance (or at least the
- * floating-point computed distance) between line_segment1 and
- * line_segment2 is (strictly) greater than epsilon. size 1 results
- * if the segments intersect poperly, form a T intersection, or --
- * intersection.  size 2 results when two or more endpoints are a
- * Euclidean distance no greater than \a epsilon from the opposite
- * segment, and the overlap of the segments has a length greater
- * than \a epsilon.
+ * \remarks  size 0 results if the distance (or at least the floating-point
+ * computed distance) between line_segment1 and line_segment2 is (strictly)
+ * greater than epsilon. size 1 results if the segments intersect properly, form
+ * a "T" intersection, or "--"" intersection.  size 2 results when two or more
+ * endpoints are a Euclidean distance no greater than \a epsilon from the
+ * opposite segment, and the overlap of the segments has a length greater than
+ * \a epsilon.
  */
 Line_Segment intersection(const Line_Segment &line_segment1,
                           const Line_Segment &line_segment2,

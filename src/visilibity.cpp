@@ -1475,6 +1475,10 @@ void Polygon::eliminate_redundant_vertices(double epsilon) {
   unsigned third = 2;
 
   while (third <= vertices_.size()) {
+    // The above inequality is inclusive because `Polygon` overloads the `[]`
+    // operator with wrapping and we want to eliminate redundancy even around
+    // the wrap.
+
     // if second is redundant
     if (distance(Line_Segment((*this)[first], (*this)[third]),
                  (*this)[second]) <= epsilon) {

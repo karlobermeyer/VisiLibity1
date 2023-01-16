@@ -1,0 +1,6 @@
+# robots.txt
+# https://en.wikipedia.org/wiki/Robots.txt
+# http://www.robotstxt.org/
+
+User-agent: *
+Disallow: /doxygen_html/*
